@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
 const elements = require('./routes/api/elements');
-const connection = require('./config/db_connect');
+const db = require('./config/db_connect');
 
 const app = express();
 
@@ -13,9 +13,10 @@ app.use(bodyParser.json());
 app.use(morgan('short'));
 
 // Connect to SQL database
-connection.connect((err) => {
+db.getConnection((err, connection) => {
     if (err) throw err;
     console.log('Database connection established.');
+    connection.release();
 });
 
 app.get('/', (req, res) => {
