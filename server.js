@@ -20,7 +20,7 @@ connection.connect((err) => {
 
 app.get('/', (req, res) => {
     console.log();
-    res.send('WELCOME');
+    res.send('WELCOME TO THE SERVER ROOT DIRECTORY!');
 });
 
 // Routes
