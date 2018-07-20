@@ -10,6 +10,7 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('short'));
 
 // Connect to SQL database
